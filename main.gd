@@ -96,7 +96,8 @@ func _build_controls():
     _button(layer, "NITRO", Vector2(-105,-205), Vector2(190,65), "nitro")
 
 func _button(layer: CanvasLayer, caption: String, offset: Vector2, size: Vector2, action: String):
-    var b := Button.new()
+    func _button(layer: CanvasLayer, caption: String, offset: Vector2, size: Vector2, action: String) -> void:
+    var b = Button.new()
     b.text = caption
     b.size = size
     b.anchor_left = 0.5
