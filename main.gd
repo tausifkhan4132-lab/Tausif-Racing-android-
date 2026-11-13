@@ -82,8 +82,13 @@ func _build_hud():
     hud.add_theme_color_override("font_color", Color(0.2,0.95,1))
     layer.add_child(hud)
 
+
+
 func _build_controls():
-    var layer := get_child(1) as CanvasLayer
+    var layer := CanvasLayer.new()
+    layer.name = "ControlsLayer"
+    add_child(layer)
+
     _button(layer, "◀", Vector2(22,-110), Vector2(90,75), "left")
     _button(layer, "▶", Vector2(122,-110), Vector2(90,75), "right")
     _button(layer, "BRAKE", Vector2(-205,-110), Vector2(90,75), "brake")
