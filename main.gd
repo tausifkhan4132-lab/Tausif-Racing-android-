@@ -123,8 +123,14 @@ func _set_action(action: String, pressed: bool):
 func _process(delta):
     if Input.is_action_pressed("ui_left") or touch_left:
         steer = move_toward(steer, -1.0, delta*3.0)
-    elif Input.is_action_pressed("ui_right") or touch_right:
-        steer = move_toward(steer, 1.0, delta*3.0)
+    b.button_down.connect(_on_button_down.bind(action))
+b.button_up.connect(_on_button_up.bind(action))
+
+func _on_button_down(action: String):
+    _set_action(action, true)
+
+func _on_button_up(action: String):
+    _set_action(action, false)
     else:
         steer = move_toward(steer, 0.0, delta*2.0)
 
